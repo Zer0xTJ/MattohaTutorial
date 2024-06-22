@@ -29,4 +29,9 @@ public partial class MainMenu : Control
 		MattohaSystem.Instance.StartClient();
 	}
 
+	public override void _ExitTree()
+	{
+		MattohaSystem.Instance.Client.ConnectedToServer -= OnConnected;
+		base._ExitTree();
+	}
 }
