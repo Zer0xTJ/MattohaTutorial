@@ -32,4 +32,11 @@ public partial class UserDialog : Control
 
 		MattohaSystem.Instance.Client.SetPlayerData(data);
 	}
+
+	public override void _ExitTree()
+	{
+
+		MattohaSystem.Instance.Client.SetPlayerDataSucceed -= OnPlayerDataSet;
+		base._ExitTree();
+	}
 }
