@@ -1,7 +1,13 @@
-[gd_scene format=3 uid="uid://dlcdjul4fk705"]
+[gd_scene load_steps=2 format=3 uid="uid://dlcdjul4fk705"]
 
-[node name="LobbySlot" type="HBoxContainer"]
-scale = Vector2(-0.149272, 0.73052)
+[ext_resource type="Script" path="res://csharp_demo_example/scripts/LobbySlot.cs" id="1_0x3ab"]
+
+[node name="LobbySlot" type="HBoxContainer" node_paths=PackedStringArray("LobbyNameLabel", "PlayersCountLabel")]
+offset_right = 247.0
+offset_bottom = 31.0
+script = ExtResource("1_0x3ab")
+LobbyNameLabel = NodePath("LobbyNameLabel")
+PlayersCountLabel = NodePath("PlayersCountLabel")
 
 [node name="LobbyNameLabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -21,3 +27,5 @@ unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
 text = "JOIN"
+
+[connection signal="pressed" from="JoinButton" to="." method="OnJoinButtonPressed"]
